@@ -22,10 +22,10 @@
   }
   
   .navbar .nav-link {
-    color: var(--bs-gray);
+    color: var(--bs-dark);
   }
   
   .navbar .nav-link:hover {
-    color: var(--bs-light);
+    color: var(--bs-gray);
   }
   
