@@ -2,8 +2,8 @@
 include('config.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $email = $_POST['email'];
     $username = $_POST['username'];
     $password = $_POST['password'];
