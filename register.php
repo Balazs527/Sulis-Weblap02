@@ -2,8 +2,8 @@
 include('config.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
     $email = $_POST['email'];
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($password === $passwordConfirm) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users (first_name, last_name, email, username, password) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (firstname, lastname, email, username, password) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssss", $firstName, $lastName, $email, $username, $hashedPassword);
 
