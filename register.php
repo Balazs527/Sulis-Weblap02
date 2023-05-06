@@ -38,27 +38,27 @@ include('header.php');
     <form action="" method="POST">
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder=" Enter First Name " name="firstName" required>
+            <input type="text" class="form-control dark-input" id="firstName" placeholder=" Enter First Name " name="firstName" required>
         </div>
         <div class="mb-3">
             <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" placeholder=" Enter Last Name " name="lastName" required>
+            <input type="text" class="form-control dark-input" id="lastName" placeholder=" Enter Last Name " name="lastName" required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder=" Enter Email Address " name="email" required>
+            <input type="email" class="form-control dark-input" id="email" placeholder=" Enter Email Address " name="email" required>
         </div>
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" placeholder=" Enter Username " name="username" required>
+            <input type="text" class="form-control dark-input" id="username" placeholder=" Enter Username " name="username" required>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder=" Enter Password" name="password" required>
+            <input type="password" class="form-control dark-input" id="password" placeholder=" Enter Password" name="password" required>
         </div>
         <div class="mb-3">
             <label for="passwordConfirm" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="passwordConfirm" placeholder=" Confirm Password " name="passwordConfirm" required>
+            <input type="password" class="form-control dark-input" id="passwordConfirm" placeholder=" Confirm Password " name="passwordConfirm" required>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
         <p class="mt-3">Already have an account? <a href="login.php">Login here</a></p>

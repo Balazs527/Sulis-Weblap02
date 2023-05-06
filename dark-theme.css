@@ -28,4 +28,24 @@
   .navbar .nav-link:hover {
     color: var(--bs-gray);
   }
+ 
+  input.form-control::placeholder {
+    color: var(--bs-dark);
+    opacity: 1;
+  }
+
+  .dark-input {
+    background-color: var(--bs-secondary);
+    color: var(--bs-dark);
+  }
+  
+  .dark-input::placeholder {
+    color: var(--bs-light);
+    opacity: 1;
+  }
+  
+  .dark-input:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
   
