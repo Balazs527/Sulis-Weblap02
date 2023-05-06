@@ -1,0 +1,31 @@
+:root {
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #343a40;
+    --bs-dark: #f8f9fa;
+    --bs-white: #212529;
+    --bs-gray: #adb5bd;
+    --bs-gray-dark: #6c757d;
+  }
+  
+  body {
+    background-color: var(--bs-light);
+    color: var(--bs-dark);
+  }
+  
+  .navbar {
+    background-color: var(--bs-gray);
+  }
+  
+  .navbar .nav-link {
+    color: var(--bs-gray);
+  }
+  
+  .navbar .nav-link:hover {
+    color: var(--bs-light);
+  }
+  
