@@ -15,6 +15,10 @@
   body {
     background-color: var(--bs-light);
     color: var(--bs-dark);
+    background-image: url('háttér01.png');
+    background-size: fill;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   .navbar {
