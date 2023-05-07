@@ -37,7 +37,7 @@ include('header.php');
     <h2>Login</h2>
     <?php
     if (isset($error)) {
-        echo '<div class="alert alert-danger">' . $error . '</div>';
+        echo '<div class="alert error-message">' . $error . '</div>';
     }
     ?>
     <form action="" method="POST">
