@@ -40,6 +40,7 @@
     color: var(--bs-dark);
     opacity: 1;
     transition: background-color 1s;
+    transition: color 1s;
   }
 
   .dark-input {
@@ -51,6 +52,7 @@
     color: var(--bs-light);
     opacity: 1;
     transition: background-color 1s;
+    transition: color 1s;
   }
   
   .dark-input:focus {
