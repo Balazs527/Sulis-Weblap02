@@ -59,13 +59,13 @@ a:hover {
 
 .btn {
   background-color: var(--bs-white);
-  border-color: var(--bs-secondary);
+  border-color: var(--bs-white);
   color: var(--bs-dark);
 }
 
 .btn:hover {
   background-color: var(--bs-gray-dark);
-  border-color: var(--bs-dark);
+  border-color: var(--bs-white);
   color: var(--bs-dark);
   box-shadow: 0 0 0 0.25rem rgb(170, 170, 170);
 }
