@@ -59,7 +59,7 @@ a:hover {
 
 .btn {
   background-color: var(--bs-white);
-  border-color: var(--bs-white);
+  border-color: var(--bs-gray);
   color: var(--bs-dark);
 }
 
