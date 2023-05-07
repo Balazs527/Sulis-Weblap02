@@ -54,7 +54,7 @@ include('header.php');
             <label class="form-check-label" for="remember">Remember me</label>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
-        <p class="mt-3">Don't have an account? <a href="register.php">Register here</a></p>
+        <p class="mt-3">Don't have an account? <a href="register.php"><b>Register here</b></a></p>
     </form>
 </div>
 

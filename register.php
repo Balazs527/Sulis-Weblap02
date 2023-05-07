@@ -61,7 +61,7 @@ include('header.php');
             <input type="password" class="form-control dark-input" id="passwordConfirm" placeholder=" Confirm Password " name="passwordConfirm" required>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
-        <p class="mt-3">Already have an account? <a href="login.php">Login here</a></p>
+        <p class="mt-3">Already have an account? <a href="login.php"><b>Login here</b></a></p>
     </form>
 </div>
 
