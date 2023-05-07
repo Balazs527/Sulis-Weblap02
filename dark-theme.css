@@ -45,7 +45,42 @@
   }
   
   .dark-input:focus {
-    border-color: var(--bs-primary);
+    border-color: var(--bs-white);
     box-shadow: 0 0 0 0.25rem rgb(170, 170, 170);
   }
+
+a {
+  color: var(--bs-dark);
+}
+
+a:hover {
+  color: var(--bs-gray);
+}
+
+.btn {
+  background-color: var(--bs-white);
+  border-color: var(--bs-secondary);
+  color: var(--bs-dark);
+}
+
+.btn:hover {
+  background-color: var(--bs-gray-dark);
+  border-color: var(--bs-dark);
+  color: var(--bs-dark);
+  box-shadow: 0 0 0 0.25rem rgb(170, 170, 170);
+}
+
+.a .a-link:hover {
+  color: var(--bs-gray);
+  text-decoration: underline;
+}
   
+.form-check-input:checked {
+  background-color: var(--bs-white);
+  border-color: var(--bs-dark);
+}
+
+.form-check-input:focus {
+  border-color: var(--bs-dark);
+  box-shadow: 0 0 0 0.25rem rgb(170, 170, 170);
+}
