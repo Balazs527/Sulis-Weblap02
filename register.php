@@ -32,7 +32,7 @@ include('header.php');
     <h2>Register</h2>
     <?php
     if (isset($error)) {
-        echo '<div class="alert error-message">' . $error . '</div>';
+        echo '<div class="alert alert-danger">' . $error . '</div>';
     }
     ?>
     <form action="" method="POST">

@@ -127,7 +127,7 @@ a:hover {
   transition: background-color 1s;
 }
 
-.error-message {
+/*.error-message {
   background-color: var(--bs-warning);
   color: var(--bs-light);
   border-color: var(--bs-light);
@@ -136,3 +136,5 @@ a:hover {
   border-radius: 5px; 
   transition-delay: 1s;
 }
+echo '<div class="alert error-message">' . $error . '</div>'; (ezzel valamért nem műkszik, de jól néz ki)
+*/
