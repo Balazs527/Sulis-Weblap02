@@ -59,6 +59,7 @@
 
 a {
   color: var(--bs-dark);
+  transition: background-color 0.8s;
 }
 
 a:hover {
