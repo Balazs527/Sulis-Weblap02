@@ -43,6 +43,10 @@
     transition: color 1s;
   }
 
+  .dropdown11 {
+    color: var(--bs-dark);
+  }
+
   .dark-input {
     background-color: var(--bs-secondary);
     color: var(--bs-dark);
