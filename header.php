@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sulis Weblap02</title>
+    <title>Sulis Weblap 2</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="dark-theme.css" rel="stylesheet">
 </head>
@@ -55,9 +55,15 @@ document.addEventListener("DOMContentLoaded", function() {
             alertElement.style.transition = "opacity 1s";
             setTimeout(function() {
                 alertElement.style.opacity = "0";
+<<<<<<< HEAD
             }, 10000);
         }
     }, 1000);
+=======
+            }, 100000);
+        }
+    }, 10000);
+>>>>>>> ad4ccd7812dc5b66a44550a382f4a5a4560e3edd
 });
 </script>
 
