@@ -26,8 +26,10 @@ CREATE TABLE cars (
     engine_size FLOAT NOT NULL,
     fuel_type ENUM('gasoline', 'diesel', 'electric', 'hybrid') NOT NULL,
     description TEXT,
+    image_path VARCHAR(255),
     FOREIGN KEY (users_username) REFERENCES users(username)
 );
+
 /*id: az autó egyedi azonosítója
 users_username: a tulajdonos felhasználóneve, ami a users táblához kapcsolódik
 made_by: az autó gyártója
@@ -36,4 +38,5 @@ year: az autó gyártási éve
 color: az autó színe
 engine_size: a motor mérete literben
 fuel_type: az üzemanyag típusa (benzin, dízel, elektromos vagy hibrid)
-description: egy leírás az autóról*/
+description: egy leírás az autóról
+image_path: a kép elérési útvonala*/
