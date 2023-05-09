@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $color = $_POST['color'];
     $engineSize = $_POST['engineSize'];
     $fuelType = $_POST['fuelType'];
+    $sellingPrice=$_POST['sellingPrice'];
     $description = $_POST['description'];
 
     $image = $_FILES['image'];
@@ -35,9 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $imageDestination = 'uploads/' . $imageNameNew;
                 move_uploaded_file($imageTmpName, $imageDestination);
 
-                $sql = "INSERT INTO cars (users_username, made_by, model, year, color, engine_size, fuel_type, description, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO cars (users_username, made_by, model, year, color, engine_size, fuel_type, description, image_path, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("sssisssss", $_SESSION['username'], $madeBy, $model, $year, $color, $engineSize, $fuelType, $description, $imageDestination);
+                $stmt->bind_param("sssissssss", $_SESSION['username'], $madeBy, $model, $year, $color, $engineSize, $fuelType, $description, $imageDestination, $sellingPrice);
 
                 if ($stmt->execute()) {
                     header("Location: index.php");
@@ -67,8 +68,8 @@ include('header.php');
     ?>
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="madeBy" class="form-label">Made By</label>
-            <input type="text" class="form-control dark-input" id="madeBy" placeholder="Enter Made By" name="madeBy" required>
+            <label for="madeBy" class="form-label"> Brand</label>
+            <input type="text" class="form-control dark-input" id="madeBy" placeholder="Enter Brand" name="madeBy" required>
         </div>
         <div class="mb-3">
             <label for="model" class="form-label">Model</label>
@@ -93,7 +94,12 @@ include('header.php');
                 <option value="diesel">Diesel</option>
                 <option value="electric">Electric</option>
                 <option value="hybrid">Hybrid</option>
+                <option value="hybrid">LPG</option>
             </select>
+        </div>
+        <div class="mb-3">
+            <label for="sellingPrice" class="form-label">Selling Price</label>
+            <input type="number" class="form-control dark-input" id="year" placeholder="Enter Price" name="sellingPrice" required>
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
@@ -103,7 +109,8 @@ include('header.php');
             <label for="image" class="form-label">Image</label>
             <input class="form-control dark-input" type="file" id="image" name="image" required>
         </div>
-        <button type="submit" class="btn btn-primary">Upload Car</button>
+        <button type="submit" class="btn btn-primary" style="margin-bottom: 20px;">Upload Car</button>
+
     </form>
 </div>
 

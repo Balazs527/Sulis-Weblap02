@@ -24,7 +24,7 @@ CREATE TABLE cars (
     year INT NOT NULL,
     color VARCHAR(255) NOT NULL,
     engine_size FLOAT NOT NULL,
-    fuel_type ENUM('gasoline', 'diesel', 'electric', 'hybrid') NOT NULL,
+    fuel_type ENUM('gasoline', 'diesel', 'electric', 'hybrid', 'LPG') NOT NULL,
     description TEXT,
     image_path VARCHAR(255),
     FOREIGN KEY (users_username) REFERENCES users(username)
