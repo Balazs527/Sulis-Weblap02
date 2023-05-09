@@ -30,9 +30,7 @@
                     }
                 ?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
                     <ul class="dropdown-menu dark-input">
                         <li><a class="dropdown-item dark-input" href="#">Action</a></li>
                         <li><a class="dropdown-item dark-input" href="#">Another action</a></li>
@@ -57,9 +55,15 @@ document.addEventListener("DOMContentLoaded", function() {
             alertElement.style.transition = "opacity 1s";
             setTimeout(function() {
                 alertElement.style.opacity = "0";
+<<<<<<< HEAD
+            }, 10000);
+        }
+    }, 1000);
+=======
             }, 100000);
         }
     }, 10000);
+>>>>>>> ad4ccd7812dc5b66a44550a382f4a5a4560e3edd
 });
 </script>
 
