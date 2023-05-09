@@ -9,19 +9,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $passwordConfirm = $_POST['passwordConfirm'];
 
-    if ($password === $passwordConfirm) {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users (firstname, lastname, email, username, password) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssss", $firstName, $lastName, $email, $username, $hashedPassword);
+    $sql_check_email = "SELECT * FROM users WHERE email = ?";
+    $stmt_check_email = $conn->prepare($sql_check_email);
+    $stmt_check_email->bind_param("s", $email);
+    $stmt_check_email->execute();
+    $result_check_email = $stmt_check_email->get_result();
 
-        if ($stmt->execute()) {
-            header("Location: login.php");
+    if ($result_check_email->num_rows == 0) {
+        if ($password === $passwordConfirm) {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO users (firstname, lastname, email, username, password) VALUES (?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("sssss", $firstName, $lastName, $email, $username, $hashedPassword);
+
+            if ($stmt->execute()) {
+                header("Location: login.php");
+            } else {
+                $error = "Something went wrong. Please try again.";
+            }
         } else {
-            $error = "Something went wrong. Please try again.";
+            $error = "Passwords do not match.";
         }
     } else {
-        $error = "Passwords do not match.";
+        $error = "Email address is already in use.";
     }
 }
 
