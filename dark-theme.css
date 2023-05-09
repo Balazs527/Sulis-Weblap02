@@ -160,5 +160,5 @@ a:hover {
   border-radius: 5px; 
   transition-delay: 1s;
 }
-echo '<div class="alert error-message">' . $error . '</div>'; (ezzel valamért nem műkszik, de jól néz ki)
+echo '<div class="alert error-message">' . $error . '</div>'; (ezzel valamért nem műkszik, de jól néz ki!!!)
 */
