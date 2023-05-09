@@ -34,6 +34,7 @@ if (isset($error)) {
                             <h5 class="card-title"><?php echo $row['made_by'] . ' ' . $row['model']; ?></h5>
                             <h6 class="card-subtitle mb-2"><?php echo $row['year']; ?></h6>
                             <p class="card-text">
+                            Price: <?php echo $row['price']; ?> Ft <br>
                                 Color: <?php echo $row['color']; ?><br>
                                 Engine Size: <?php echo $row['engine_size']; ?> L<br>
                                 Fuel Type: <?php echo ucfirst($row['fuel_type']); ?><br>
@@ -51,6 +52,7 @@ if (isset($error)) {
         ?>
     </div>
 </div>
+
 
 <!-- Modal -->
 <div class="modal" tabindex="-1" id="imageModal">

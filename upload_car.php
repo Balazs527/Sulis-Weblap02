@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 $sql = "INSERT INTO cars (users_username, made_by, model, year, color, engine_size, fuel_type, description, image_path, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("sssissssss", $_SESSION['username'], $madeBy, $model, $year, $color, $engineSize, $fuelType, $description, $imageDestination, $sellingPrice);
+                $stmt->bind_param("sssisssssi", $_SESSION['username'], $madeBy, $model, $year, $color, $engineSize, $fuelType, $description, $imageDestination, $sellingPrice);
 
                 if ($stmt->execute()) {
                     header("Location: index.php");
@@ -99,7 +99,7 @@ include('header.php');
         </div>
         <div class="mb-3">
             <label for="sellingPrice" class="form-label">Selling Price</label>
-            <input type="number" class="form-control dark-input" id="year" placeholder="Enter Price" name="sellingPrice" required>
+            <input type="number" class="form-control dark-input" id="sellingPrice" placeholder="Enter Price" name="sellingPrice" required>
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>

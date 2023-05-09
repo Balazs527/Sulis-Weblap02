@@ -27,6 +27,7 @@ CREATE TABLE cars (
     fuel_type ENUM('gasoline', 'diesel', 'electric', 'hybrid', 'LPG') NOT NULL,
     description TEXT,
     image_path VARCHAR(255),
+    price INT NOT NULL,
     FOREIGN KEY (users_username) REFERENCES users(username)
 );
 
@@ -39,4 +40,5 @@ color: az autó színe
 engine_size: a motor mérete literben
 fuel_type: az üzemanyag típusa (benzin, dízel, elektromos vagy hibrid)
 description: egy leírás az autóról
-image_path: a kép elérési útvonala*/
+image_path: a kép elérési útvonala
+price: a kocsi ára*/
