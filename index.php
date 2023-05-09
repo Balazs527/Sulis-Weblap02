@@ -1,8 +1,14 @@
 <?php
 include('config.php');
 
-$sql = "SELECT * FROM cars";
-$result = $conn->query($sql);
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+
+$sql = "SELECT * FROM cars WHERE made_by LIKE ? OR model LIKE ? OR description LIKE ?";
+$search_term = '%' . $search . '%';
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("sss", $search_term, $search_term, $search_term);
+$stmt->execute();
+$result = $stmt->get_result();
 
 session_start();
 if (isset($_SESSION['error'])) {
@@ -56,9 +62,9 @@ if (isset($error)) {
 
 <!-- Modal -->
 <div class="modal" tabindex="-1" id="imageModal">
-  <div class="modal-dialog modal-dialog-centered modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content dark-input">
+      <div class="modal-header dark-input">
         <h5 class="modal-title">Car Image</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -66,37 +72,25 @@ if (isset($error)) {
         <img src="" id="modalImage" class="img-fluid">
       </div>
       <div class="modal-footer">
-        <a href="index.php" class="btn btn-primary">Back to Home page</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-  </div>
-
-<button onclick="scrollToTop()" class="scroll-top" id="scrollToTop">Back to Top</button>
+</div>
 
 <script>
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+document.addEventListener("DOMContentLoaded", function() {
+    var carImages = document.querySelectorAll(".car-image");
+    var imageModal = new bootstrap.Modal(document.getElementById("imageModal"), {});
+    var modalImage = document.getElementById("modalImage");
 
-  var imageModal = document.getElementById('imageModal');
-
-  var modalImage = document.getElementById("modalImage");
-  var carImages = document.getElementsByClassName("car-image");
-  for (let i = 0; i < carImages.length; i++) {
-    carImages[i].onclick = function () {
-      modalImage.src = carImages[i].src;
-      imageModal.style.display = "block";
-      new bootstrap.Modal(imageModal).show();
-    };
-  }
-
-  var closeButton = document.getElementsByClassName("btn-close")[0];
-
-  closeButton.onclick = function () {
-    imageModal.style.display = "none";
-  };
+    carImages.forEach(function(carImage) {
+        carImage.addEventListener("click", function(event) {
+            modalImage.src = event.target.src;
+            imageModal.show();
+        });
+    });
+});
 </script>
 
 <?php include('footer.php'); ?>
-

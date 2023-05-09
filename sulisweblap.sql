@@ -1,6 +1,6 @@
-CREATE DATABASE sulisweblap;
+CREATE DATABASE sulisweblap02;
 
-USE sulisweblap;
+USE sulisweblap02;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
