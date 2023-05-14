@@ -1,0 +1,100 @@
+Strausz Balázs_R3OWIB_B-feladatrész
+
+A WebSocket bemutatása
+
+Bevezetés
+A WebSocket egy kommunikációs protokoll, amely interaktív kommunikációt tesz lehetővé egy felhasználó böngészője és egy szerver között. Ezzel a protokollal a szerver is üzenetet küldhet a kliensnek, amint az elérhető, ami lehetővé teszi a valós idejű alkalmazások létrehozását, mint például a chat alkalmazások, játékok és élő hírfolyamok.
+
+A WebSocket protokoll
+A WebSocket protokoll a HTTP protokollon alapul, de képes a full-duplex kommunikációra, ami azt jelenti, hogy a kliens és a szerver egyszerre tudnak kommunikálni egymással, anélkül, hogy lezárnák a kapcsolatot. Ez a funkcionalitás jelentős előnyt jelent a hagyományos HTTP kérésekkel szemben, ahol minden egyes kérés és válasz új kapcsolatot igényel, ami többlet erőforrás-igényt és késleltetést okoz.
+
+WebSocket API
+A WebSocket API a böngészőkben elérhető, és lehetővé teszi a fejlesztők számára, hogy WebSocket szerverekhez csatlakozzanak és kommunikáljanak velük. Az API egyszerű és könnyen használható, és számos eseményt kínál, amelyek lehetővé teszik a fejlesztők számára, hogy reagáljanak a kapcsolat változásaira és az érkező üzenetekre.
+
+WebSocket alkalmazása
+Az alábbi példa bemutatja, hogyan hozhatunk létre egy WebSocket kapcsolatot egy szerverrel:
+ 1. let socket = new WebSocket("ws://websocket.example.com");
+ 2.  
+ 3. socket.onopen = function(event) {
+ 4.   console.log("Connection established");
+ 5.   socket.send("Hello, Server!");
+ 6. };
+ 7.  
+ 8. socket.onmessage = function(event) {
+ 9.   console.log("Received data from server: ", event.data);
+10. };
+11.  
+12. socket.onerror = function(error) {
+13.   console.log("WebSocket error: ", error);
+14. };
+15.  
+16. socket.onclose = function(event) {
+17.   console.log("WebSocket connection closed");
+18. };
+19.  
+
+Ebben a példában létrehozunk egy új WebSocket objektumot, amely kapcsolatot készít a megadott szerverrel. Az onopen, onmessage, onerror, és onclose eseménykezelők lehetővé teszik, hogy a kód reagáljon a kapcsolat változásaira és az érkező üzenetekre.
+ 
+WebSocket előnyei és hátrányai
+A WebSocket legnagyobb előnye, hogy valós idejű alkalmazásokat tesz lehetővé minimális késleltetéssel. Ez nagyon hasznos olyan alkalmazások esetében, mint a chat alkalmazások, a multiplayer online játékok, és a valós időben történő hírek vagy adatfolyamok. Mivel a kapcsolat folyamatosan nyitva van, az adatok azonnal továbbíthatók, amint rendelkezésre állnak.
+A WebSocket másik előnye az erőforrás-hatékonyság. A hagyományos HTTP-kérések minden egyes kérés-válasz ciklus során új kapcsolatot nyitnak, ami növeli a szerver terhelését és a hálózati forgalmat. A WebSocket-kapcsolatok ezzel szemben folyamatosan nyitva vannak, így kevesebb erőforrást igényelnek.
+Azonban vannak hátrányai is a WebSocket használatának. Mivel a kapcsolat folyamatosan nyitva van, a szervernek képesnek kell lennie kezelni a nyitott kapcsolatokat, ami nagy terhelést jelenthet nagyobb forgalom esetén. Emellett a WebSocket protokoll nem támogatja a HTTP protokollban elérhető néhány funkciót, például a státuskódokat és a fejléceket.
+
+WebSocket protokoll keretstruktúrája
+A WebSocket protokoll keretei meghatározzák az üzenetek formátumát a szerver és a kliens között. Egy WebSocket keret tartalmazhat szöveget vagy bináris adatokat, és számos vezérlő bitet tartalmaz, amelyek meghatározzák az adatok típusát és hosszát, valamint azt, hogy az adatokat további keretekben továbbítják-e.
+
+WebSocket kapcsolat létrehozása
+Egy WebSocket kapcsolat létrehozása egy HTTP kérelemmel kezdődik, amelyet "handshake" néven ismerünk. Ez a kérelem a szervernek jelez, hogy a kliens WebSocket kapcsolatot kíván létrehozni. Ha a szerver támogatja a WebSocket-et, akkor válaszként elküld egy 101-es státuszkódot, ami azt jelzi, hogy a protokoll WebSocket-re vált.
+
+WebSocket biztonsági megfontolások
+A WebSocket használatakor fontos figyelembe venni a biztonsági kérdéseket is. Mivel a WebSocket kapcsolatok folyamatosan nyitva vannak, ki vannak téve a potenciális támadásoknak, például az adatok elfogásának vagy módosításának. A WebSocket támogatja a titkosítást a "wss://" URL sémával, amely a WebSocket Secure (WSS) protokollt használja, és hasonló a HTTPS-hez. Ezenkívül a fejlesztőknek biztosítaniuk kell, hogy csak megbízható forrásokból fogadnak WebSocket kapcsolatokat, és megfelelően kezelik a hibákat és a kivételeket.
+
+Összefoglalás
+Összefoglalva, a WebSocket egy rendkívül hatékony protokoll a valós idejű webalkalmazások számára. Lehetővé teszi a szerver és a kliens közötti kétirányú kommunikációt, ami jelentős előnyt jelent a hagyományos HTTP protokollhoz képest. Azonban, mint minden technológia, a WebSocket-nek is vannak előnyei és hátrányai, ezért a fejlesztőknek meg kell fontolniuk az egyes alkalmazások igényeit és korlátait a használatának döntésekor.
+ 
+
+
+A Szerver Közvetített Események (Server-Sent Events, SSE) bemutatása
+
+Bevezetés
+A Szerver Közvetített Események (Server-Sent Events, SSE) egy technológia, amely lehetővé teszi a szerver számára, hogy valós időben eseményeket küldjön a webböngészőbe. A SSE kétirányú kommunikációt tesz lehetővé a szerver és a kliens között, így ideális olyan alkalmazásokhoz, amelyek valós idejű frissítéseket igényelnek, például hírfolyamok, élő eredmények, stb.
+
+A Server-Sent Events protokoll
+A SSE a HTTP protokollon alapul, de továbbfejlesztett képességeket kínál, például a szerver által kezdeményezett események, az automatikus újracsatlakozás és az esemény azonosítók. A SSE a szerver-kliens kommunikáció aszimmetrikus változatát használja, ahol a szerver frissítéseket küldhet a kliensnek, de a kliens nem küldhet eseményeket a szervernek.
+
+Server-Sent Events API
+A SSE API a böngészőkben elérhető, és lehetővé teszi a fejlesztők számára, hogy SSE szerverekhez csatlakozzanak és fogadják az eseményeket. Az API egyszerű és könnyen használható, és számos eseményt kínál, amelyek lehetővé teszik a fejlesztők számára, hogy reagáljanak a kapcsolat változásaira és az érkező eseményekre.
+
+Server-Sent Events alkalmazása
+
+Az alábbi példa bemutatja, hogyan hozhatunk létre egy SSE kapcsolatot egy szerverrel:
+ 1. let source = new EventSource("https://sse.example.com/events");
+ 2.  
+ 3. source.onopen = function(event) {
+ 4.   console.log("Connection established");
+ 5. };
+ 6.  
+ 7. source.onmessage = function(event) {
+ 8.   console.log("Received data from server: ", event.data);
+ 9. };
+10.  
+11. source.onerror = function(error) {
+12.   console.log("SSE error: ", error);
+13. };
+14.  
+
+Ebben a példában létrehozunk egy új EventSource objektumot, amely kapcsolatot készít a megadott szerverrel. Az onopen, onmessage, és onerror eseménykezelők lehetővé teszik, hogy a kód reagáljon a kapcsolat változásaira és az érkező eseményekre.
+ 
+
+Server-Sent Events előnyei és hátrányai
+Az SSE legnagyobb előnye, hogy lehetővé teszi a szerver számára, hogy valós időben eseményeket küldjön a kliensnek. Ez nagyon hasznos olyan alkalmazások esetében, mint az élő hírfolyamok, időjárásjelentések, aukciók, sporteredmények stb. Mivel az SSE a HTTP protokollon alapul, a meglévő infrastruktúrák és hálózatok támogatják, és az API egyszerűen használható.
+Az SSE további előnyei közé tartozik az automatikus újracsatlakozás és az eseményazonosítók támogatása. Ha a kapcsolat megszakad, az SSE automatikusan újracsatlakozik a szerverhez, és az eseményazonosítók segítségével a szerver tudja, hogy mely eseményeket küldte már el, így csak az új eseményeket küldi el.
+Az SSE fő hátránya, hogy csak egyszerű szöveges adatokat támogat, és nem képes bináris adatok küldésére. Ez korlátozza a felhasználhatóságát olyan alkalmazásokban, amelyek nagy mennyiségű vagy bináris adatokat igényelnek, például videostreaming vagy nagy teljesítményű játékok.
+Emellett az SSE csak a szerverről a klienshez irányuló kommunikációt támogatja, nem pedig a kétirányú kommunikációt, mint a WebSocket. Ezért az SSE nem ideális olyan alkalmazásokhoz, amelyek a kliens és a szerver közötti interaktív kommunikációt igénylik.
+
+Összefoglalás
+Összefoglalva, a Server-Sent Events (SSE) egy nagyon hatékony technológia valós idejű webalkalmazásokhoz, amelyek frissítéseket igényelnek a szerverről. A SSE könnyen használható, támogatja az automatikus újracsatlakozást és az eseményazonosítókat, és széles körben támogatott a modern böngészőkben.
+Azonban, mint minden technológia, az SSE-nek is vannak korlátai, például a bináris adatok támogatásának hiánya és a kétirányú kommunikáció hiánya. Emiatt fontos, hogy a fejlesztők megfontolják az egyes alkalmazások igényeit és korlátait, mielőtt döntenének az SSE használatáról.
+Az SSE-t könnyű használni, és számos modern webalkalmazás számára nyújt értékes funkciókat. Azonban, mint minden technológia, fontos megfontolni a használatának előnyeit és korlátait. Míg az SSE nagyszerű a szerverről a klienshez irányuló valós idejű frissítésekhez, nem támogatja a bináris adatokat és a kétirányú kommunikációt.
+Végül, a Server-Sent Events használatakor fontos, hogy tisztában legyünk a szerver és a kliens közötti kapcsolat korlátaival, és hogy megfelelően kezeljük a hibákat és a kapcsolat megszakadását. Az SSE automatikus újracsatlakozási képessége, valamint az eseményazonosítók használata segíthetnek ebben.
+A Server-Sent Events hozzáadott értéket jelenthet a webalkalmazásoknak, és javíthatja azok teljesítményét és felhasználói élményét. A technológia megértése és hatékony alkalmazása segíthet a fejlesztőknek jobban kihasználni a valós idejű webalkalmazásokban rejlő lehetőségeket.
