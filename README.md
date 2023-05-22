@@ -73,3 +73,5 @@ A menü megvalósítása a header.php fájlban történik. A navigációs sáv t
 5. Kilépés: A felhasználókat kijelentkezteti a fiókjukból és visszairányítja őket a kezdőoldalra.
 
 A menü dinamikusan változik a felhasználó bejelentkezési állapota alapján. Bejelentkezett felhasználók esetén a "Bejelentkezés" és "Regisztráció" menüpontok eltűnnek, helyette pedig a "Kilépés" és "Autófeltöltés" menüpontok jelennek meg.
+
+A feladatok megvalósításához az XAMPP-ot használtuk, és a weblap működtetéséhez szükségünk volt az Apache-ra, MySQL-re és a FileZillára.
